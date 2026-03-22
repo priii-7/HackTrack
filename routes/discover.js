@@ -173,7 +173,8 @@ router.post('/', async (req, res) => {
     const queries = [
       'hackathon 2026 open registration India site:unstop.com OR site:devfolio.co',
       'hackathon 2026 open registration India site:devpost.com OR site:hackerearth.com',
-      'upcoming hackathon India 2026 register now deadline'
+      'upcoming hackathon India 2026 register now deadline',
+      'hackathon April May 2026 India registration open'
     ];
 
     // Collect all unique results from Serper
@@ -206,6 +207,13 @@ router.post('/', async (req, res) => {
       try {
         const h = await buildHackathonFromURL(result);
         if (!h) { noDate++; continue; }
+
+        // Skip if registration deadline has already passed
+        if (new Date(h.reg_deadline) < new Date()) {
+          console.log(`  ⏰ Deadline passed, skipping: ${h.name.substring(0,50)}`);
+          noDate++;
+          continue;
+        }
 
         const safeName = h.name.substring(0, 15).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         const exists = await Hackathon.findOne({ name: { $regex: new RegExp(safeName, 'i') } });
