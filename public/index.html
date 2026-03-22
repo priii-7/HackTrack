@@ -14,8 +14,6 @@
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background 0.3s,color 0.3s}
     h1,h2,h3,.logo,.modal-title,.card-title,.stat-card .value{font-family:'Nunito',sans-serif}
     body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 15% 10%,rgba(167,139,250,0.12) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 85% 85%,rgba(249,168,212,0.1) 0%,transparent 60%);pointer-events:none;z-index:0}
-
-    /* NAV */
     nav{background:var(--nav-bg);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:66px;position:sticky;top:0;z-index:100}
     .logo{font-size:22px;font-weight:800;background:linear-gradient(135deg,#7c3aed,#db2777);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     [data-theme="dark"] .logo{background:linear-gradient(135deg,#c4b5fd,#f9a8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -28,8 +26,19 @@
     .theme-toggle:hover{border-color:var(--p1);transform:rotate(15deg)}
     .btn-add{background:linear-gradient(135deg,var(--p1),var(--p2));color:white;border:none;padding:10px 22px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:700;transition:all 0.2s;font-family:'Nunito',sans-serif;box-shadow:0 4px 14px rgba(167,139,250,0.35)}
     .btn-add:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(167,139,250,0.45)}
-
-    /* NOTIFICATION BELL */
+    .btn-auth{background:var(--surface2);border:1.5px solid var(--border);color:var(--text);padding:8px 16px;border-radius:12px;cursor:pointer;font-size:13px;font-weight:700;transition:all 0.2s;font-family:'Nunito',sans-serif}
+    .btn-auth:hover{border-color:var(--p1);color:var(--p1)}
+    .user-avatar-btn{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--p1),var(--p2));border:none;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:white;font-family:'Nunito',sans-serif;cursor:pointer;transition:all 0.2s;box-shadow:0 2px 8px rgba(167,139,250,0.35)}
+    .user-avatar-btn:hover{transform:scale(1.1);box-shadow:0 4px 14px rgba(167,139,250,0.5)}
+    .user-dropdown{position:absolute;top:76px;right:120px;width:220px;background:var(--surface);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,0.15);z-index:200;overflow:hidden}
+    .user-dropdown.hidden{display:none}
+    .user-dropdown-header{padding:14px 16px;border-bottom:1px solid var(--border)}
+    .user-dropdown-header .ud-name{font-size:14px;font-weight:800;font-family:'Nunito',sans-serif}
+    .user-dropdown-header .ud-email{font-size:12px;color:var(--muted);margin-top:2px;word-break:break-all}
+    .user-dropdown-item{padding:12px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;font-weight:600;transition:background 0.2s}
+    .user-dropdown-item:hover{background:var(--surface2)}
+    .user-dropdown-item.danger{color:var(--red)}
+    .user-dropdown-divider{height:1px;background:var(--border)}
     .notif-btn{position:relative;background:var(--surface2);border:1px solid var(--border);color:var(--text);width:40px;height:40px;border-radius:12px;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
     .notif-btn:hover{border-color:var(--p1)}
     .notif-badge{position:absolute;top:-4px;right:-4px;background:linear-gradient(135deg,var(--red),#fb7185);color:white;font-size:10px;font-weight:800;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif}
@@ -48,8 +57,6 @@
     .notif-text strong{display:block;font-weight:700;margin-bottom:2px}
     .notif-text span{color:var(--muted);font-size:12px}
     .notif-empty{padding:32px;text-align:center;color:var(--muted);font-size:14px}
-
-    /* DISCOVER BTN */
     .btn-discover{background:linear-gradient(135deg,#059669,#34d399);color:white;border:none;padding:10px 18px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:700;transition:all 0.2s;font-family:'Nunito',sans-serif;box-shadow:0 4px 14px rgba(52,211,153,0.3);display:flex;align-items:center;gap:6px}
     .btn-discover:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(52,211,153,0.4)}
     .btn-discover.loading{opacity:0.7;pointer-events:none}
@@ -57,17 +64,12 @@
     .discover-bar p{font-size:14px;color:var(--muted);font-weight:500}
     .discover-bar p strong{color:var(--text)}
     .discover-result{font-size:13px;color:var(--green);font-weight:600;margin-top:4px}
-
     main{max-width:1200px;margin:0 auto;padding:32px 24px;position:relative;z-index:1}
     .page{display:none}.page.active{display:block}
-
-    /* HERO */
     .hero{text-align:center;margin-bottom:36px;padding:24px 0}
     .hero h1{font-size:38px;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,#7c3aed,#db2777,#0891b2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.5px}
     [data-theme="dark"] .hero h1{background:linear-gradient(135deg,#c4b5fd,#f9a8d4,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .hero p{color:var(--text);font-size:15px;font-weight:600;opacity:0.7}
-
-    /* STATS */
     .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
     .stat-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px 22px;position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
     .stat-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(167,139,250,0.15)}
@@ -79,8 +81,6 @@
     .stat-card .label{font-size:11px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.8px;font-weight:600}
     .stat-card .value{font-size:30px;font-weight:800}
     .stat-card.purple .value{color:var(--p1)}.stat-card.pink .value{color:#f472b6}.stat-card.cyan .value{color:#22d3ee}.stat-card.yellow .value{color:#f59e0b}
-
-    /* TOOLBAR */
     .toolbar{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;align-items:center}
     .toolbar input,.toolbar select{background:var(--card-bg);border:1.5px solid var(--border);color:var(--text);padding:10px 14px;border-radius:12px;font-size:14px;outline:none;font-family:'Inter',sans-serif;transition:all 0.2s}
     .toolbar input{flex:1;min-width:200px}
@@ -89,8 +89,6 @@
     .filter-tag{background:var(--surface2);border:1.5px solid var(--border);color:var(--muted);padding:8px 16px;border-radius:20px;font-size:13px;cursor:pointer;transition:all 0.2s;font-family:'Nunito',sans-serif;font-weight:600}
     .filter-tag:hover{border-color:var(--p1);color:var(--text)}
     .filter-tag.active{background:linear-gradient(135deg,var(--p1),var(--p2));color:white;border-color:transparent;box-shadow:0 4px 12px rgba(167,139,250,0.3)}
-
-    /* CARDS */
     .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
     .card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:var(--radius);padding:22px;transition:all 0.25s;cursor:pointer;position:relative;overflow:hidden}
     .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--p1),var(--p2),var(--p3));opacity:0;transition:opacity 0.2s}
@@ -104,7 +102,7 @@
     .badge.offline{background:#fef3c7;color:#92400e;border:1.5px solid #fde68a}
     .badge.hybrid{background:#ede9fe;color:#5b21b6;border:1.5px solid #ddd6fe}
     [data-theme="dark"] .badge.online{background:rgba(52,211,153,0.15);color:#6ee7b7;border-color:rgba(52,211,153,0.3)}
-    [data-theme="dark"] .badge.offline{background:rgba(251,191,36,0.15);color:#fcd34d;border-color:rgba(251,191,36,0.3)}
+    [data-theme="dark"] .badge.offline{background:rgba(251,191,36,0.15);color:#fcd34d;border-color:rgba(251,146,60,0.3)}
     [data-theme="dark"] .badge.hybrid{background:rgba(167,139,250,0.15);color:#c4b5fd;border-color:rgba(167,139,250,0.3)}
     .source-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;font-family:'Nunito',sans-serif}
     .source-badge.devpost{background:#e0f2fe;color:#0369a1;border:1px solid #bae6fd}
@@ -121,13 +119,9 @@
     [data-theme="dark"] .card-theme{background:rgba(167,139,250,0.1);color:#c4b5fd;border-color:rgba(167,139,250,0.25)}
     .prize-badge{font-size:12px;color:#92400e;background:#fffbeb;border:1.5px solid #fde68a;padding:4px 11px;border-radius:8px;margin-bottom:12px;display:inline-block;font-weight:700}
     [data-theme="dark"] .prize-badge{color:#fcd34d;background:rgba(253,230,138,0.1);border-color:rgba(253,230,138,0.2)}
-
-    /* STAR RATING ON CARD */
     .card-rating{display:flex;align-items:center;gap:5px;margin-bottom:10px}
     .stars{color:#fbbf24;font-size:13px;letter-spacing:1px}
     .rating-count{font-size:12px;color:var(--muted);font-weight:600}
-
-    /* COUNTDOWN */
     .countdown{display:flex;gap:6px;margin-bottom:12px}
     .cd-unit{background:linear-gradient(135deg,rgba(167,139,250,0.12),rgba(249,168,212,0.08));border:1px solid var(--border);border-radius:8px;padding:4px 8px;text-align:center;min-width:44px}
     .cd-unit .cd-num{font-size:16px;font-weight:800;font-family:'Nunito',sans-serif;color:var(--p1);display:block;line-height:1}
@@ -135,7 +129,6 @@
     .cd-unit.urgent .cd-num{color:var(--red)}
     .cd-unit.soon .cd-num{color:var(--orange)}
     .cd-sep{font-size:16px;font-weight:800;color:var(--muted);align-self:center;margin-bottom:10px}
-
     .deadlines{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
     .deadline-pill{display:flex;align-items:center;gap:8px;background:var(--surface2);border-radius:10px;padding:7px 12px;font-size:12px;border:1px solid var(--border)}
     .deadline-pill .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
@@ -147,27 +140,27 @@
     [data-theme="dark"] .days-badge.urgent{background:rgba(239,68,68,0.15);color:#fca5a5;border-color:rgba(239,68,68,0.3)}
     [data-theme="dark"] .days-badge.soon{background:rgba(251,146,60,0.15);color:#fdba74;border-color:rgba(251,146,60,0.3)}
     [data-theme="dark"] .days-badge.ok{background:rgba(52,211,153,0.15);color:#6ee7b7;border-color:rgba(52,211,153,0.3)}
-
     .card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
     .card-tags{display:flex;gap:5px;flex-wrap:wrap}
     .tag{font-size:11px;padding:3px 9px;border-radius:8px;background:var(--surface2);color:var(--muted);border:1px solid var(--border);font-weight:600}
-    .card-actions{display:flex;gap:6px}
+    .card-actions{display:flex;gap:6px;flex-wrap:wrap}
     .btn-sm{font-size:12px;padding:6px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:700;transition:all 0.2s;font-family:'Nunito',sans-serif}
     .btn-sm:hover{transform:scale(1.06)}
     .btn-share{background:#ede9fe;color:#6d28d9;border:1.5px solid #ddd6fe}
     .btn-reminder{background:#fce7f3;color:#9d174d;border:1.5px solid #fbcfe8}
     .btn-delete{background:#fee2e2;color:#991b1b;border:1.5px solid #fca5a5}
     .btn-review{background:#fffbeb;color:#92400e;border:1.5px solid #fde68a}
+    .btn-subscribe{background:#d1fae5;color:#065f46;border:1.5px solid #a7f3d0}
+    .btn-subscribe.subbed{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
     [data-theme="dark"] .btn-share{background:rgba(167,139,250,0.12);color:#c4b5fd;border-color:rgba(167,139,250,0.25)}
     [data-theme="dark"] .btn-reminder{background:rgba(249,168,212,0.12);color:#f9a8d4;border-color:rgba(249,168,212,0.25)}
     [data-theme="dark"] .btn-delete{background:rgba(248,113,113,0.1);color:#fca5a5;border-color:rgba(248,113,113,0.2)}
     [data-theme="dark"] .btn-review{background:rgba(253,230,138,0.1);color:#fcd34d;border-color:rgba(253,230,138,0.2)}
-
+    [data-theme="dark"] .btn-subscribe{background:rgba(52,211,153,0.12);color:#6ee7b7;border-color:rgba(52,211,153,0.25)}
+    [data-theme="dark"] .btn-subscribe.subbed{background:rgba(248,113,113,0.1);color:#fca5a5;border-color:rgba(248,113,113,0.2)}
     .empty-state{text-align:center;padding:80px 20px;color:var(--muted)}
     .empty-state .icon{font-size:60px;margin-bottom:16px}
     .empty-state p{font-size:16px;font-weight:600}
-
-    /* CALENDAR */
     #calendar-container{background:var(--card-bg);border:1.5px solid var(--border);border-radius:var(--radius);padding:24px}
     .fc{color:var(--text) !important}
     .fc .fc-toolbar-title{color:var(--text);font-size:18px;font-family:'Nunito',sans-serif;font-weight:800}
@@ -179,8 +172,6 @@
     .fc .fc-daygrid-day-number{color:var(--muted)}
     .fc .fc-day-today{background:rgba(167,139,250,0.08) !important}
     .fc-theme-standard td,.fc-theme-standard th{border-color:var(--border) !important}
-
-    /* MODALS */
     .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);backdrop-filter:blur(6px);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
     .modal-overlay.hidden{display:none}
     .modal{background:var(--surface);border:1.5px solid var(--border);border-radius:20px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;padding:30px;box-shadow:0 20px 60px rgba(167,139,250,0.2)}
@@ -195,6 +186,25 @@
     select option{background:var(--surface)}textarea{resize:vertical;min-height:80px}
     .btn-submit{width:100%;background:linear-gradient(135deg,var(--p1),var(--p2));color:white;border:none;padding:13px;border-radius:12px;font-size:15px;font-weight:800;cursor:pointer;margin-top:8px;transition:all 0.2s;font-family:'Nunito',sans-serif;box-shadow:0 4px 15px rgba(167,139,250,0.35)}
     .btn-submit:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(167,139,250,0.45)}
+    .auth-tabs{display:flex;gap:4px;background:var(--surface2);padding:4px;border-radius:12px;margin-bottom:24px}
+    .auth-tab{flex:1;background:none;border:none;color:var(--muted);padding:10px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;transition:all 0.2s;font-family:'Nunito',sans-serif}
+    .auth-tab.active{background:var(--surface);color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+    .auth-form{display:none}.auth-form.active{display:block}
+    .profile-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:20px}
+    .profile-header{display:flex;align-items:center;gap:18px;margin-bottom:20px}
+    .profile-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--p1),var(--p2));display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:white;font-family:'Nunito',sans-serif;flex-shrink:0}
+    .profile-info h2{font-size:20px;font-weight:800;margin-bottom:4px}
+    .profile-info p{font-size:13px;color:var(--muted)}
+    .pref-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px}
+    .pref-row:last-child{border-bottom:none}
+    .pref-row .pref-label{font-weight:600}
+    .pref-row .pref-desc{font-size:12px;color:var(--muted);margin-top:2px}
+    .toggle{position:relative;display:inline-block;width:44px;height:24px}
+    .toggle input{opacity:0;width:0;height:0}
+    .toggle-slider{position:absolute;cursor:pointer;inset:0;background:var(--border);border-radius:24px;transition:.3s}
+    .toggle-slider:before{content:'';position:absolute;height:18px;width:18px;left:3px;bottom:3px;background:white;border-radius:50%;transition:.3s}
+    input:checked+.toggle-slider{background:linear-gradient(135deg,var(--p1),var(--p2))}
+    input:checked+.toggle-slider:before{transform:translateX(20px)}
     .reminder-modal{max-width:420px}
     .reminder-info{background:linear-gradient(135deg,rgba(167,139,250,0.1),rgba(249,168,212,0.08));border:1.5px solid rgba(167,139,250,0.25);border-radius:12px;padding:14px;margin-bottom:16px}
     .reminder-info h3{font-size:15px;margin-bottom:4px;font-family:'Nunito',sans-serif;font-weight:700}
@@ -202,8 +212,6 @@
     .detail-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border);font-size:14px}
     .detail-row:last-child{border-bottom:none}
     .detail-row .key{color:var(--muted);font-weight:600}.detail-row .val{font-weight:700;text-align:right;max-width:60%}
-
-    /* REVIEW MODAL */
     .review-modal{max-width:460px}
     .star-input{display:flex;gap:8px;margin-bottom:4px}
     .star-input button{background:none;border:none;font-size:28px;cursor:pointer;transition:transform 0.1s;opacity:0.3;padding:0}
@@ -216,13 +224,10 @@
     .review-item .r-stars{color:#fbbf24;font-size:13px}
     .review-item .r-comment{font-size:13px;color:var(--muted)}
     .review-item .r-date{font-size:11px;color:var(--muted)}
-
-    /* TOAST */
     .toast{position:fixed;bottom:28px;right:28px;background:linear-gradient(135deg,var(--p1),var(--p2));color:white;padding:13px 22px;border-radius:14px;font-size:14px;font-weight:700;z-index:999;transform:translateY(100px);opacity:0;transition:all 0.3s;pointer-events:none;box-shadow:0 8px 25px rgba(167,139,250,0.4);font-family:'Nunito',sans-serif}
     .toast.show{transform:translateY(0);opacity:1}
     .toast.error{background:linear-gradient(135deg,#f87171,#fb7185);box-shadow:0 8px 25px rgba(248,113,113,0.4)}
     .toast.success-green{background:linear-gradient(135deg,#34d399,#6ee7b7);box-shadow:0 8px 25px rgba(52,211,153,0.4)}
-
     .form-section-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--p1);margin:18px 0 10px;font-family:'Nunito',sans-serif;padding-bottom:6px;border-bottom:2px solid var(--border)}
     .btn-add-row{background:var(--surface2);border:1.5px dashed var(--border);color:var(--p1);padding:8px 16px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:700;width:100%;margin-top:8px;transition:all 0.2s;font-family:'Nunito',sans-serif}
     .btn-add-row:hover{border-color:var(--p1);background:rgba(167,139,250,0.08)}
@@ -242,7 +247,7 @@
     .extra-link-pill{display:flex;align-items:center;gap:8px;background:rgba(249,168,212,0.08);border:1px solid rgba(249,168,212,0.2);border-radius:8px;padding:6px 12px;font-size:12px}
     .extra-link-pill a{color:var(--p1);text-decoration:none;font-weight:600}
     .extra-link-pill a:hover{text-decoration:underline}
-
+    .hidden{display:none!important}
     @media(max-width:600px){.stats-bar{grid-template-columns:repeat(2,1fr)}.cards-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.extra-row.date-row,.extra-row.link-row{grid-template-columns:1fr auto}nav{padding:0 16px}.hero h1{font-size:28px}.nav-center{display:none}}
   </style>
 </head>
@@ -253,56 +258,48 @@
     <button class="nav-tab active" onclick="showPage('list',this)">📋 All</button>
     <button class="nav-tab" onclick="showPage('bookmarks',this)">🔖 Saved</button>
     <button class="nav-tab" onclick="showPage('calendar',this)">📅 Calendar</button>
+    <button class="nav-tab hidden" id="profile-tab" onclick="showPage('profile',this)">👤 Profile</button>
   </div>
   <div class="nav-right">
     <button class="notif-btn" onclick="toggleNotif()" id="notif-btn">🔔<span class="notif-badge hidden" id="notif-count">0</span></button>
     <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">☀️</button>
+    <button class="btn-auth" id="btn-auth" onclick="openAuthModal('login')">👤 Login / Sign up</button>
+    <div style="position:relative" id="user-area" class="hidden">
+      <button class="user-avatar-btn" id="user-avatar-btn" onclick="toggleUserDropdown()">?</button>
+      <div class="user-dropdown hidden" id="user-dropdown">
+        <div class="user-dropdown-header">
+          <div class="ud-name" id="ud-name">—</div>
+          <div class="ud-email" id="ud-email">—</div>
+        </div>
+        <div class="user-dropdown-item" onclick="showPage('profile',null);toggleUserDropdown()">👤 My Profile</div>
+        <div class="user-dropdown-divider"></div>
+        <div class="user-dropdown-item danger" onclick="logout()">🚪 Logout</div>
+      </div>
+    </div>
     <button class="btn-add" onclick="openAddModal()">✨ Add</button>
   </div>
 </nav>
-
-<!-- NOTIFICATION DROPDOWN -->
 <div class="notif-dropdown hidden" id="notif-dropdown">
-  <div class="notif-header">
-    <span>🔔 Notifications</span>
-    <button class="notif-clear" onclick="clearNotifs()">Clear all</button>
-  </div>
-  <div class="notif-list" id="notif-list">
-    <div class="notif-empty">No notifications yet 🎉</div>
-  </div>
+  <div class="notif-header"><span>🔔 Notifications</span><button class="notif-clear" onclick="clearNotifs()">Clear all</button></div>
+  <div class="notif-list" id="notif-list"><div class="notif-empty">No notifications yet 🎉</div></div>
 </div>
-
 <main>
-  <!-- LIST PAGE -->
   <div class="page active" id="page-list">
     <div class="hero"><h1>Hackathon Deadline Tracker</h1><p>Never miss a registration deadline again 🌸</p></div>
-
-    <!-- DISCOVER BAR -->
     <div class="discover-bar">
-      <div>
-        <p><strong>🤖 Auto-discover hackathons</strong> using Serper + DuckDuckGo web search</p>
-        <p class="discover-result" id="discover-result" style="display:none"></p>
-      </div>
-      <button class="btn-discover" id="discover-btn" onclick="discoverHackathons()">
-        <span id="discover-icon">🔍</span> Find Hackathons
-      </button>
+      <div><p><strong>🤖 Auto-discover hackathons</strong> using Serper + DuckDuckGo web search</p><p class="discover-result" id="discover-result" style="display:none"></p></div>
+      <button class="btn-discover" id="discover-btn" onclick="discoverHackathons()"><span id="discover-icon">🔍</span> Find Hackathons</button>
     </div>
-
     <div class="stats-bar">
       <div class="stat-card purple"><div class="label">Total</div><div class="value" id="stat-total">0</div></div>
       <div class="stat-card pink"><div class="label">Upcoming</div><div class="value" id="stat-upcoming">0</div></div>
       <div class="stat-card yellow"><div class="label">Closing Soon</div><div class="value" id="stat-soon">0</div></div>
       <div class="stat-card cyan"><div class="label">Last Chance</div><div class="value" id="stat-urgent">0</div></div>
     </div>
-
     <div class="toolbar">
       <input type="text" id="search-input" placeholder="🔍 Search hackathons..." oninput="filterCards()"/>
-      <select id="mode-filter" onchange="filterCards()">
-        <option value="">All Modes</option><option value="Online">Online</option><option value="Offline">Offline</option><option value="Hybrid">Hybrid</option>
-      </select>
-      <select id="sort-select" onchange="filterCards()">
-        <option value="deadline">Sort: Deadline</option><option value="prize">Sort: Prize</option><option value="name">Sort: Name</option><option value="rating">Sort: Rating</option><option value="newest">Sort: Newest</option>
-      </select>
+      <select id="mode-filter" onchange="filterCards()"><option value="">All Modes</option><option value="Online">Online</option><option value="Offline">Offline</option><option value="Hybrid">Hybrid</option></select>
+      <select id="sort-select" onchange="filterCards()"><option value="deadline">Sort: Deadline</option><option value="prize">Sort: Prize</option><option value="name">Sort: Name</option><option value="rating">Sort: Rating</option><option value="newest">Sort: Newest</option></select>
       <button class="filter-tag active" onclick="setDeadlineFilter('all',this)">All</button>
       <button class="filter-tag" onclick="setDeadlineFilter('urgent',this)">🔴 Urgent</button>
       <button class="filter-tag" onclick="setDeadlineFilter('soon',this)">🟠 Soon</button>
@@ -310,30 +307,57 @@
     </div>
     <div class="cards-grid" id="cards-container"><div class="empty-state"><div class="icon">🌸</div><p>Loading hackathons...</p></div></div>
   </div>
-
-  <!-- BOOKMARKS PAGE -->
   <div class="page" id="page-bookmarks">
     <div class="hero"><h1>Saved Hackathons</h1><p>Your bookmarked hackathons 🔖</p></div>
     <div class="cards-grid" id="bookmarks-container"><div class="empty-state"><div class="icon">🔖</div><p>No saved hackathons yet!</p></div></div>
   </div>
-
-  <!-- CALENDAR PAGE -->
-  <div class="page" id="page-calendar">
-    <div id="calendar-container"><div id="calendar"></div></div>
+  <div class="page" id="page-calendar"><div id="calendar-container"><div id="calendar"></div></div></div>
+  <div class="page" id="page-profile">
+    <div class="hero"><h1>My Profile</h1><p>Manage your account & notification preferences 👤</p></div>
+    <div class="profile-card">
+      <div class="profile-header">
+        <div class="profile-avatar" id="profile-avatar">?</div>
+        <div class="profile-info"><h2 id="profile-name">—</h2><p id="profile-email">—</p></div>
+      </div>
+    </div>
+    <div class="profile-card">
+      <div class="form-section-label">📧 Email Notification Preferences</div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Choose when to receive deadline reminder emails.</p>
+      <div class="pref-row"><div><div class="pref-label">7 days before</div><div class="pref-desc">Early heads-up</div></div><label class="toggle"><input type="checkbox" id="pref-7d" onchange="savePrefs()"/><span class="toggle-slider"></span></label></div>
+      <div class="pref-row"><div><div class="pref-label">3 days before</div><div class="pref-desc">Plan your registration</div></div><label class="toggle"><input type="checkbox" id="pref-3d" onchange="savePrefs()"/><span class="toggle-slider"></span></label></div>
+      <div class="pref-row"><div><div class="pref-label">1 day before</div><div class="pref-desc">Last warning</div></div><label class="toggle"><input type="checkbox" id="pref-1d" onchange="savePrefs()"/><span class="toggle-slider"></span></label></div>
+      <div class="pref-row"><div><div class="pref-label">Day of deadline</div><div class="pref-desc">Final reminder</div></div><label class="toggle"><input type="checkbox" id="pref-0d" onchange="savePrefs()"/><span class="toggle-slider"></span></label></div>
+    </div>
+    <button class="btn-submit" style="max-width:200px;" onclick="logout()">🚪 Logout</button>
   </div>
 </main>
-
-<!-- ADD / EDIT MODAL (shared) -->
+<div class="modal-overlay hidden" id="auth-modal">
+  <div class="modal" style="max-width:440px;">
+    <div class="modal-header"><div class="modal-title">🌸 Welcome to HackTrack</div><button class="btn-close" onclick="closeModal('auth-modal')">✕</button></div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Login</button>
+      <button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Register</button>
+    </div>
+    <div class="auth-form active" id="form-login">
+      <div class="form-group"><label>Email</label><input type="email" id="login-email" placeholder="you@email.com"/></div>
+      <div class="form-group"><label>Password</label><input type="password" id="login-password" placeholder="Your password"/></div>
+      <button class="btn-submit" onclick="submitLogin()">🚀 Login</button>
+      <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:14px;">Don't have an account? <a href="#" onclick="switchAuthTab('register')" style="color:var(--p1);font-weight:700;text-decoration:none">Register</a></p>
+    </div>
+    <div class="auth-form" id="form-register">
+      <div class="form-group"><label>Full Name</label><input type="text" id="reg-name" placeholder="Your name"/></div>
+      <div class="form-group"><label>Email</label><input type="email" id="reg-email" placeholder="you@email.com"/></div>
+      <div class="form-group"><label>Password <span style="color:var(--muted);font-weight:400">(min 6 chars)</span></label><input type="password" id="reg-password" placeholder="Create a password"/></div>
+      <button class="btn-submit" onclick="submitRegister()">🌸 Create Account</button>
+      <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:14px;">Already have an account? <a href="#" onclick="switchAuthTab('login')" style="color:var(--p1);font-weight:700;text-decoration:none">Login</a></p>
+    </div>
+  </div>
+</div>
 <div class="modal-overlay hidden" id="add-modal">
   <div class="modal" style="max-width:620px;">
-    <div class="modal-header">
-      <div class="modal-title" id="add-modal-title">✨ Add Hackathon</div>
-      <button class="btn-close" onclick="closeModal('add-modal')">✕</button>
-    </div>
+    <div class="modal-header"><div class="modal-title" id="add-modal-title">✨ Add Hackathon</div><button class="btn-close" onclick="closeModal('add-modal')">✕</button></div>
     <form onsubmit="submitHackathon(event)">
       <input type="hidden" id="f-edit-id"/>
-
-      <!-- BASIC INFO -->
       <div class="form-section-label">📋 Basic Info</div>
       <div class="form-group"><label>Hackathon Name *</label><input type="text" id="f-name" required placeholder="e.g. Smart India Hackathon 2026"/></div>
       <div class="form-row">
@@ -347,34 +371,19 @@
         <div class="form-group"><label>Team Size</label><input type="text" id="f-team-size" placeholder="e.g. 2–4 members"/></div>
       </div>
       <div class="form-group"><label>Tags (comma separated)</label><input type="text" id="f-tags" placeholder="e.g. AI, Web Dev, Beginner Friendly"/></div>
-
-      <!-- DATES -->
       <div class="form-section-label">📅 Important Dates</div>
       <div class="form-row">
         <div class="form-group"><label>Registration Deadline *</label><input type="datetime-local" id="f-reg-deadline" required/></div>
         <div class="form-group"><label>Submission Deadline *</label><input type="datetime-local" id="f-sub-deadline" required/></div>
       </div>
-      <div class="form-group">
-        <label>Additional Dates <span style="color:var(--muted);font-weight:400">(Final Round, Shortlisting, etc.)</span></label>
-        <div id="extra-dates-list"></div>
-        <button type="button" class="btn-add-row" onclick="addExtraDate()">+ Add Date</button>
-      </div>
-
-      <!-- LINKS -->
+      <div class="form-group"><label>Additional Dates</label><div id="extra-dates-list"></div><button type="button" class="btn-add-row" onclick="addExtraDate()">+ Add Date</button></div>
       <div class="form-section-label">🔗 Links</div>
       <div class="form-group"><label>Main Website</label><input type="url" id="f-url" placeholder="https://hackathon-website.com"/></div>
-      <div class="form-group">
-        <label>Additional Links <span style="color:var(--muted);font-weight:400">(Registration Form, Problem Statements, etc.)</span></label>
-        <div id="extra-links-list"></div>
-        <button type="button" class="btn-add-row" onclick="addExtraLink()">+ Add Link</button>
-      </div>
-
+      <div class="form-group"><label>Additional Links</label><div id="extra-links-list"></div><button type="button" class="btn-add-row" onclick="addExtraLink()">+ Add Link</button></div>
       <button type="submit" class="btn-submit" id="form-submit-btn">🌸 Add Hackathon</button>
     </form>
   </div>
 </div>
-
-<!-- REMINDER MODAL -->
 <div class="modal-overlay hidden" id="reminder-modal">
   <div class="modal reminder-modal">
     <div class="modal-header"><div class="modal-title">🔔 Set Reminder</div><button class="btn-close" onclick="closeModal('reminder-modal')">✕</button></div>
@@ -384,30 +393,17 @@
     <button class="btn-submit" onclick="submitReminder()">🔔 Subscribe</button>
   </div>
 </div>
-
-<!-- REVIEW MODAL -->
 <div class="modal-overlay hidden" id="review-modal">
   <div class="modal review-modal">
     <div class="modal-header"><div class="modal-title">⭐ Rate & Review</div><button class="btn-close" onclick="closeModal('review-modal')">✕</button></div>
     <div class="reminder-info"><h3 id="review-hackathon-name"></h3></div>
-    <div class="form-group">
-      <label>Your Rating</label>
-      <div class="star-input" id="star-input">
-        <button onclick="setRating(1)" data-star="1">⭐</button>
-        <button onclick="setRating(2)" data-star="2">⭐</button>
-        <button onclick="setRating(3)" data-star="3">⭐</button>
-        <button onclick="setRating(4)" data-star="4">⭐</button>
-        <button onclick="setRating(5)" data-star="5">⭐</button>
-      </div>
-    </div>
+    <div class="form-group"><label>Your Rating</label><div class="star-input" id="star-input"><button onclick="setRating(1)" data-star="1">⭐</button><button onclick="setRating(2)" data-star="2">⭐</button><button onclick="setRating(3)" data-star="3">⭐</button><button onclick="setRating(4)" data-star="4">⭐</button><button onclick="setRating(5)" data-star="5">⭐</button></div></div>
     <div class="form-group"><label>Your Name (optional)</label><input type="text" id="review-author" placeholder="Anonymous"/></div>
     <div class="form-group"><label>Review (optional)</label><textarea id="review-comment" placeholder="Share your experience..."></textarea></div>
     <button class="btn-submit" onclick="submitReview()">⭐ Submit Review</button>
     <div class="reviews-list" id="reviews-list"></div>
   </div>
 </div>
-
-<!-- DETAIL MODAL -->
 <div class="modal-overlay hidden" id="detail-modal">
   <div class="modal">
     <div class="modal-header"><div class="modal-title" id="detail-title"></div><button class="btn-close" onclick="closeModal('detail-modal')">✕</button></div>
@@ -415,177 +411,154 @@
     <div style="display:flex;gap:10px;margin-top:20px;" id="detail-actions"></div>
   </div>
 </div>
-
 <div class="toast" id="toast"></div>
-
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
 <script>
-  const API='/api/hackathons';
+  const API='/api/hackathons',AUTH_API='/api/auth';
   let allHackathons=[],deadlineFilter='all',currentReminderId=null,currentReviewId=null,calendarInstance=null,selectedRating=0;
   let bookmarks=JSON.parse(localStorage.getItem('hk-bookmarks')||'[]');
   let notifications=JSON.parse(localStorage.getItem('hk-notifs')||'[]');
   let countdownIntervals={};
-
-  // ── THEME ──────────────────────────────────────────────
+  let currentUser=JSON.parse(localStorage.getItem('hk-user')||'null');
+  let authToken=localStorage.getItem('hk-token')||null;
+  let subscribedIds=new Set();
   const savedTheme=localStorage.getItem('hk-theme')||'light';
   document.documentElement.setAttribute('data-theme',savedTheme);
   document.getElementById('theme-btn').textContent=savedTheme==='dark'?'🌙':'☀️';
   function toggleTheme(){const c=document.documentElement.getAttribute('data-theme'),n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('hk-theme',n);document.getElementById('theme-btn').textContent=n==='dark'?'🌙':'☀️';}
-
-  // ── UTILS ──────────────────────────────────────────────
   function daysUntil(d){return Math.ceil((new Date(d)-new Date())/(1000*60*60*24));}
   function formatDate(d){return new Date(d).toLocaleString('en-IN',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true,timeZone:Intl.DateTimeFormat().resolvedOptions().timeZone});}
-  // Convert UTC date from DB back to local datetime-local input format (YYYY-MM-DDTHH:mm)
-  function toLocalInput(d){
-    const dt=new Date(d);
-    const off=dt.getTimezoneOffset()*60000;
-    return new Date(dt-off).toISOString().slice(0,16);
-  }
+  function toLocalInput(d){const dt=new Date(d);const off=dt.getTimezoneOffset()*60000;return new Date(dt-off).toISOString().slice(0,16);}
   function getDaysLabel(d){if(d<0)return{label:'Expired',cls:'urgent'};if(d===0)return{label:'TODAY!',cls:'urgent'};if(d<=2)return{label:d+'d left',cls:'urgent'};if(d<=7)return{label:d+'d left',cls:'soon'};return{label:d+'d left',cls:'ok'};}
   function showToast(msg,type=''){const t=document.getElementById('toast');t.textContent=msg;t.className='toast show'+(type?' '+type:'');setTimeout(()=>t.className='toast',3000);}
-  function starsHTML(rating){if(!rating)return'';const full=Math.round(rating);return'⭐'.repeat(full)+'☆'.repeat(5-full);}
-
-  // ── NOTIFICATIONS ──────────────────────────────────────
-  function addNotif(icon,title,body){
-    notifications.unshift({icon,title,body,time:Date.now(),read:false});
-    if(notifications.length>20)notifications=notifications.slice(0,20);
-    localStorage.setItem('hk-notifs',JSON.stringify(notifications));
-    renderNotifs();
+  function starsHTML(r){if(!r)return'';const f=Math.round(r);return'⭐'.repeat(f)+'☆'.repeat(5-f);}
+  function authHeaders(){return authToken?{'Content-Type':'application/json','Authorization':'Bearer '+authToken}:{'Content-Type':'application/json'};}
+  function applyAuthState(){
+    const li=!!currentUser;
+    document.getElementById('btn-auth').classList.toggle('hidden',li);
+    document.getElementById('user-area').classList.toggle('hidden',!li);
+    document.getElementById('profile-tab').classList.toggle('hidden',!li);
+    if(li){
+      const ini=currentUser.name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+      document.getElementById('user-avatar-btn').textContent=ini;
+      document.getElementById('ud-name').textContent=currentUser.name;
+      document.getElementById('ud-email').textContent=currentUser.email;
+      document.getElementById('profile-avatar').textContent=ini;
+      document.getElementById('profile-name').textContent=currentUser.name;
+      document.getElementById('profile-email').textContent=currentUser.email;
+      if(currentUser.email_notifications){
+        document.getElementById('pref-7d').checked=currentUser.email_notifications.seven_days;
+        document.getElementById('pref-3d').checked=currentUser.email_notifications.three_days;
+        document.getElementById('pref-1d').checked=currentUser.email_notifications.one_day;
+        document.getElementById('pref-0d').checked=currentUser.email_notifications.same_day;
+      }
+      subscribedIds=new Set((currentUser.subscribed_hackathons||[]).map(id=>id.toString()));
+    }
   }
+  function openAuthModal(tab='login'){switchAuthTab(tab);document.getElementById('auth-modal').classList.remove('hidden');}
+  function switchAuthTab(tab){
+    document.getElementById('tab-login').classList.toggle('active',tab==='login');
+    document.getElementById('tab-register').classList.toggle('active',tab==='register');
+    document.getElementById('form-login').classList.toggle('active',tab==='login');
+    document.getElementById('form-register').classList.toggle('active',tab==='register');
+  }
+  async function submitLogin(){
+    const email=document.getElementById('login-email').value.trim(),password=document.getElementById('login-password').value;
+    if(!email||!password){showToast('Fill in all fields','error');return;}
+    try{
+      const r=await fetch(AUTH_API+'/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})}),j=await r.json();
+      if(j.success){authToken=j.token;currentUser=j.user;localStorage.setItem('hk-token',authToken);localStorage.setItem('hk-user',JSON.stringify(currentUser));closeModal('auth-modal');applyAuthState();showToast('👋 Welcome back, '+currentUser.name.split(' ')[0]+'!','success-green');addNotif('👋','Logged in!','Welcome back to HackTrack.');bookmarks=(currentUser.bookmarks||[]).map(b=>b.toString());localStorage.setItem('hk-bookmarks',JSON.stringify(bookmarks));filterCards();}
+      else showToast(j.message||'Login failed','error');
+    }catch(e){showToast('Server error','error');}
+  }
+  async function submitRegister(){
+    const name=document.getElementById('reg-name').value.trim(),email=document.getElementById('reg-email').value.trim(),password=document.getElementById('reg-password').value;
+    if(!name||!email||!password){showToast('Fill in all fields','error');return;}
+    try{
+      const r=await fetch(AUTH_API+'/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,password})}),j=await r.json();
+      if(j.success){authToken=j.token;currentUser=j.user;localStorage.setItem('hk-token',authToken);localStorage.setItem('hk-user',JSON.stringify(currentUser));closeModal('auth-modal');applyAuthState();showToast('🌸 Welcome, '+name.split(' ')[0]+'!','success-green');addNotif('🌸','Welcome to HackTrack!','Your account has been created.');}
+      else showToast(j.message||'Registration failed','error');
+    }catch(e){showToast('Server error','error');}
+  }
+  function logout(){authToken=null;currentUser=null;subscribedIds=new Set();localStorage.removeItem('hk-token');localStorage.removeItem('hk-user');applyAuthState();showPage('list',document.querySelector('.nav-tab'));showToast('Logged out 👋');filterCards();}
+  function toggleUserDropdown(){document.getElementById('user-dropdown').classList.toggle('hidden');}
+  async function savePrefs(){
+    if(!currentUser)return;
+    const prefs={seven_days:document.getElementById('pref-7d').checked,three_days:document.getElementById('pref-3d').checked,one_day:document.getElementById('pref-1d').checked,same_day:document.getElementById('pref-0d').checked};
+    try{const r=await fetch(AUTH_API+'/preferences',{method:'PUT',headers:authHeaders(),body:JSON.stringify(prefs)}),j=await r.json();if(j.success){currentUser.email_notifications=j.email_notifications;localStorage.setItem('hk-user',JSON.stringify(currentUser));showToast('✅ Preferences saved','success-green');}}catch(e){}
+  }
+  async function toggleSubscribe(id,btn,e){
+    e.stopPropagation();
+    if(!currentUser){openAuthModal('login');showToast('Login to subscribe to email reminders','error');return;}
+    const isSubbed=subscribedIds.has(id);
+    try{
+      const r=await fetch(AUTH_API+'/subscribe/'+id,{method:isSubbed?'DELETE':'POST',headers:authHeaders()}),j=await r.json();
+      if(j.success){if(isSubbed)subscribedIds.delete(id);else subscribedIds.add(id);currentUser.subscribed_hackathons=isSubbed?(currentUser.subscribed_hackathons||[]).filter(x=>x.toString()!==id):[...(currentUser.subscribed_hackathons||[]),id];localStorage.setItem('hk-user',JSON.stringify(currentUser));btn.textContent=subscribedIds.has(id)?'🔕 Unsubscribe':'📧 Email me';btn.classList.toggle('subbed',subscribedIds.has(id));showToast(j.message,'success-green');}
+    }catch(err){showToast('Server error','error');}
+  }
+  function pushNotif(obj){notifications.unshift(obj);if(notifications.length>20)notifications=notifications.slice(0,20);localStorage.setItem('hk-notifs',JSON.stringify(notifications));renderNotifs();}
+  function addNotif(icon,title,body){pushNotif({icon,title,body,time:Date.now(),read:false});}
   function renderNotifs(){
     const unread=notifications.filter(n=>!n.read).length;
-    const badge=document.getElementById('notif-count');
-    badge.textContent=unread;
-    badge.classList.toggle('hidden',unread===0);
+    const badge=document.getElementById('notif-count');badge.textContent=unread;badge.classList.toggle('hidden',unread===0);
     const list=document.getElementById('notif-list');
     if(!notifications.length){list.innerHTML='<div class="notif-empty">No notifications yet 🎉</div>';return;}
-    list.innerHTML=notifications.map((n,i)=>`
-      <div class="notif-item ${n.read?'':'unread'}" onclick="markRead(${i})">
-        <div class="notif-icon">${n.icon}</div>
-        <div class="notif-text"><strong>${n.title}</strong>${n.body}<br><span>${timeSince(n.time)}</span></div>
-      </div>`).join('');
+    list.innerHTML=notifications.map((n,i)=>`<div class="notif-item ${n.read?'':' unread'}" onclick="markRead(${i})"><div class="notif-icon">${n.icon}</div><div class="notif-text"><strong>${n.title}</strong>${n.body}<br><span>${timeSince(n.time)}</span></div></div>`).join('');
   }
   function markRead(i){notifications[i].read=true;localStorage.setItem('hk-notifs',JSON.stringify(notifications));renderNotifs();}
   function clearNotifs(){notifications=[];localStorage.setItem('hk-notifs',JSON.stringify(notifications));renderNotifs();}
-  function toggleNotif(){
-    const d=document.getElementById('notif-dropdown');
-    d.classList.toggle('hidden');
-    notifications.forEach(n=>n.read=true);
-    localStorage.setItem('hk-notifs',JSON.stringify(notifications));
-    renderNotifs();
-  }
+  function toggleNotif(){const d=document.getElementById('notif-dropdown');d.classList.toggle('hidden');notifications.forEach(n=>n.read=true);localStorage.setItem('hk-notifs',JSON.stringify(notifications));renderNotifs();}
   function timeSince(ts){const s=Math.floor((Date.now()-ts)/1000);if(s<60)return'just now';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago';}
-  document.addEventListener('click',e=>{const d=document.getElementById('notif-dropdown');const b=document.getElementById('notif-btn');if(!d.contains(e.target)&&!b.contains(e.target))d.classList.add('hidden');});
-
-  // ── COUNTDOWN ─────────────────────────────────────────
+  document.addEventListener('click',e=>{
+    const nd=document.getElementById('notif-dropdown'),nb=document.getElementById('notif-btn');
+    if(!nd.contains(e.target)&&!nb.contains(e.target))nd.classList.add('hidden');
+    const ua=document.getElementById('user-area');
+    if(ua&&!ua.contains(e.target))document.getElementById('user-dropdown').classList.add('hidden');
+  });
+  function checkDeadlineNotifs(){
+    let changed=false;
+    allHackathons.forEach(h=>{
+      const d=daysUntil(h.reg_deadline);if(d<0)return;
+      [{days:7,key:'notif-'+h._id+'-d7',icon:'📅',title:h.name+' closes in 7 days',body:'One week left to register.'},
+       {days:3,key:'notif-'+h._id+'-d3',icon:'🔔',title:h.name+' closes in 3 days',body:'Registration deadline approaching.'},
+       {days:1,key:'notif-'+h._id+'-d1',icon:'⚠️',title:h.name+' closes tomorrow!',body:'Only 1 day left to register.'},
+       {days:0,key:'notif-'+h._id+'-d0',icon:'🚨',title:h.name+' closes TODAY!',body:'Registration deadline is today!'}
+      ].forEach(t=>{if(d<=t.days&&!notifications.some(n=>n.key===t.key)){notifications.unshift({key:t.key,icon:t.icon,title:t.title,body:t.body,time:Date.now(),read:false});if(notifications.length>20)notifications=notifications.slice(0,20);changed=true;}});
+    });
+    if(changed){localStorage.setItem('hk-notifs',JSON.stringify(notifications));renderNotifs();}
+  }
   function startCountdown(id,deadline){
     if(countdownIntervals[id])clearInterval(countdownIntervals[id]);
     function update(){
-      const el=document.getElementById('cd-'+id);
-      if(!el){clearInterval(countdownIntervals[id]);return;}
+      const el=document.getElementById('cd-'+id);if(!el){clearInterval(countdownIntervals[id]);return;}
       const diff=new Date(deadline)-new Date();
       if(diff<=0){el.innerHTML='<span style="color:var(--red);font-weight:700;font-size:13px">⏰ Deadline passed!</span>';clearInterval(countdownIntervals[id]);return;}
       const days=Math.floor(diff/86400000),hrs=Math.floor((diff%86400000)/3600000),mins=Math.floor((diff%3600000)/60000),secs=Math.floor((diff%60000)/1000);
       const cls=days===0&&hrs<2?'urgent':days<=1?'soon':'';
-      el.innerHTML=`
-        <div class="cd-unit ${cls}"><span class="cd-num">${String(days).padStart(2,'0')}</span><span class="cd-label">Days</span></div>
-        <div class="cd-sep">:</div>
-        <div class="cd-unit ${cls}"><span class="cd-num">${String(hrs).padStart(2,'0')}</span><span class="cd-label">Hrs</span></div>
-        <div class="cd-sep">:</div>
-        <div class="cd-unit ${cls}"><span class="cd-num">${String(mins).padStart(2,'0')}</span><span class="cd-label">Min</span></div>
-        <div class="cd-sep">:</div>
-        <div class="cd-unit ${cls}"><span class="cd-num">${String(secs).padStart(2,'0')}</span><span class="cd-label">Sec</span></div>`;
+      el.innerHTML=`<div class="cd-unit ${cls}"><span class="cd-num">${String(days).padStart(2,'0')}</span><span class="cd-label">Days</span></div><div class="cd-sep">:</div><div class="cd-unit ${cls}"><span class="cd-num">${String(hrs).padStart(2,'0')}</span><span class="cd-label">Hrs</span></div><div class="cd-sep">:</div><div class="cd-unit ${cls}"><span class="cd-num">${String(mins).padStart(2,'0')}</span><span class="cd-label">Min</span></div><div class="cd-sep">:</div><div class="cd-unit ${cls}"><span class="cd-num">${String(secs).padStart(2,'0')}</span><span class="cd-label">Sec</span></div>`;
     }
-    update();
-    countdownIntervals[id]=setInterval(update,1000);
+    update();countdownIntervals[id]=setInterval(update,1000);
   }
-
-  // ── FETCH ──────────────────────────────────────────────
-  async function fetchHackathons(){
-    try{
-      const r=await fetch(API),j=await r.json();
-      allHackathons=j.data||[];
-      filterCards();
-      updateStats(allHackathons);
-      checkDeadlineNotifs();
-      if(calendarInstance)renderCalendarEvents();
-    }catch(e){document.getElementById('cards-container').innerHTML='<div class="empty-state"><div class="icon">⚠️</div><p>Could not load. Is the server running?</p></div>';}
-  }
-
-  // ── DEADLINE NOTIFICATIONS ─────────────────────────────
-  function checkDeadlineNotifs(){
-    allHackathons.forEach(h=>{
-      const d=daysUntil(h.reg_deadline);
-      const key='notif-'+h._id+'-'+d;
-      const already=notifications.some(n=>n.key===key);
-      if(!already){
-        if(d===0)addNotif('🚨',h.name+' closes TODAY!','Registration deadline is today!');
-        else if(d===1)addNotif('⚠️',h.name+' closes tomorrow!','Only 1 day left to register.');
-        else if(d===3)addNotif('🔔',h.name+' closes in 3 days','Registration deadline approaching.');
-      }
-    });
-  }
-
-  // ── DISCOVER ──────────────────────────────────────────
+  async function fetchHackathons(){try{const r=await fetch(API),j=await r.json();allHackathons=j.data||[];filterCards();updateStats(allHackathons);checkDeadlineNotifs();if(calendarInstance)renderCalendarEvents();}catch(e){document.getElementById('cards-container').innerHTML='<div class="empty-state"><div class="icon">⚠️</div><p>Could not load. Is the server running?</p></div>';}}
   async function discoverHackathons(){
-    const btn=document.getElementById('discover-btn');
-    const icon=document.getElementById('discover-icon');
-    const result=document.getElementById('discover-result');
-    btn.classList.add('loading');
-    icon.textContent='⏳';
-    result.style.display='none';
-    try{
-      const r=await fetch('/api/discover',{method:'POST'});
-      const j=await r.json();
-      if(j.success){
-        result.style.display='block';
-        result.textContent=j.message;
-        showToast('🤖 '+j.message,'success-green');
-        addNotif('🤖','Auto-discovery complete!',j.message);
-        fetchHackathons();
-      } else {
-        showToast(j.message||'Discovery failed — check terminal','error');
-      }
-    }catch(e){showToast('Discovery failed: '+e.message,'error');}
+    const btn=document.getElementById('discover-btn'),icon=document.getElementById('discover-icon'),result=document.getElementById('discover-result');
+    btn.classList.add('loading');icon.textContent='⏳';result.style.display='none';
+    try{const r=await fetch('/api/discover',{method:'POST'}),j=await r.json();if(j.success){result.style.display='block';result.textContent=j.message;showToast('🤖 '+j.message,'success-green');addNotif('🤖','Auto-discovery complete!',j.message);fetchHackathons();}else showToast(j.message||'Discovery failed','error');}catch(e){showToast('Discovery failed: '+e.message,'error');}
     finally{btn.classList.remove('loading');icon.textContent='🔍';}
   }
-
-  // ── STATS ──────────────────────────────────────────────
-  function updateStats(d){
-    const u=d.filter(h=>daysUntil(h.reg_deadline)>=0),s=d.filter(h=>{const x=daysUntil(h.reg_deadline);return x>=0&&x<=7;}),ur=d.filter(h=>{const x=daysUntil(h.reg_deadline);return x>=0&&x<=2;});
-    document.getElementById('stat-total').textContent=d.length;document.getElementById('stat-upcoming').textContent=u.length;document.getElementById('stat-soon').textContent=s.length;document.getElementById('stat-urgent').textContent=ur.length;
-  }
-
-  // ── SORT ───────────────────────────────────────────────
-  function sortData(d){
-    const s=document.getElementById('sort-select').value;
-    return[...d].sort((a,b)=>{
-      if(s==='deadline')return new Date(a.reg_deadline)-new Date(b.reg_deadline);
-      if(s==='name')return a.name.localeCompare(b.name);
-      if(s==='newest')return new Date(b.created_at)-new Date(a.created_at);
-      if(s==='rating')return(b.avg_rating||0)-(a.avg_rating||0);
-      if(s==='prize'){const ap=parseInt((a.prize||'0').replace(/\D/g,''))||0,bp=parseInt((b.prize||'0').replace(/\D/g,''))||0;return bp-ap;}
-      return 0;
-    });
-  }
-
-  // ── BUILD CARD ─────────────────────────────────────────
+  function updateStats(d){const u=d.filter(h=>daysUntil(h.reg_deadline)>=0),s=d.filter(h=>{const x=daysUntil(h.reg_deadline);return x>=0&&x<=7;}),ur=d.filter(h=>{const x=daysUntil(h.reg_deadline);return x>=0&&x<=2;});document.getElementById('stat-total').textContent=d.length;document.getElementById('stat-upcoming').textContent=u.length;document.getElementById('stat-soon').textContent=s.length;document.getElementById('stat-urgent').textContent=ur.length;}
+  function sortData(d){const s=document.getElementById('sort-select').value;return[...d].sort((a,b)=>{if(s==='deadline')return new Date(a.reg_deadline)-new Date(b.reg_deadline);if(s==='name')return a.name.localeCompare(b.name);if(s==='newest')return new Date(b.created_at)-new Date(a.created_at);if(s==='rating')return(b.avg_rating||0)-(a.avg_rating||0);if(s==='prize'){const ap=parseInt((a.prize||'0').replace(/\D/g,''))||0,bp=parseInt((b.prize||'0').replace(/\D/g,''))||0;return bp-ap;}return 0;});}
   function buildCardHTML(h){
     const rd=daysUntil(h.reg_deadline),sd=daysUntil(h.sub_deadline),ri=getDaysLabel(rd),si=getDaysLabel(sd),ml=h.mode.toLowerCase();
     const tags=(h.tags||[]).slice(0,3).map(t=>`<span class="tag">${t}</span>`).join('');
-    const ib=bookmarks.includes(h._id);
-    const src=h.source||'manual';
+    const ib=bookmarks.includes(h._id),src=h.source||'manual';
     const srcLabel=src==='devpost'?'Devpost':src==='tavily'?'AI Found':'Manual';
     const rating=h.avg_rating?`<div class="card-rating"><span class="stars">${starsHTML(h.avg_rating)}</span><span class="rating-count">${h.avg_rating} (${(h.reviews||[]).length})</span></div>`:'';
+    const isSubbed=subscribedIds.has(h._id);
     return`<div class="card" onclick="openDetail('${h._id}')">
-      <div class="card-top">
-        <div class="card-title">${h.name}</div>
-        <div class="card-right">
-          <span class="badge ${ml}">${h.mode}</span>
-          <span class="source-badge ${src}">${srcLabel}</span>
-          <button class="bookmark-btn ${ib?'active':''}" onclick="event.stopPropagation();toggleBookmark('${h._id}',this)">🔖</button>
-        </div>
-      </div>
+      <div class="card-top"><div class="card-title">${h.name}</div>
+        <div class="card-right"><span class="badge ${ml}">${h.mode}</span><span class="source-badge ${src}">${srcLabel}</span>
+          <button class="bookmark-btn ${ib?'active':''}" onclick="event.stopPropagation();toggleBookmark('${h._id}',this)">🔖</button></div></div>
       ${h.organizer?`<div class="card-org">🏢 ${h.organizer}</div>`:''}
       ${h.theme?`<div class="card-theme">🎯 ${h.theme}</div>`:''}
       ${h.prize?`<div class="prize-badge">🏆 ${h.prize}</div>`:''}
@@ -595,298 +568,48 @@
         <div class="deadline-pill reg"><div class="dot"></div><span>Reg: ${formatDate(h.reg_deadline)}</span><span class="days-badge ${ri.cls}">${ri.label}</span></div>
         <div class="deadline-pill sub"><div class="dot"></div><span>Sub: ${formatDate(h.sub_deadline)}</span><span class="days-badge ${si.cls}">${si.label}</span></div>
       </div>
-      ${(h.extra_dates||[]).length?`<div class="extra-dates-display">${(h.extra_dates||[]).map(d=>`<div class="extra-date-pill"><div class="dot"></div><span><strong>${d.label}:</strong> ${formatDate(d.date)}</span></div>`).join('')}</div>`:'' }
+      ${(h.extra_dates||[]).length?`<div class="extra-dates-display">${(h.extra_dates||[]).map(d=>`<div class="extra-date-pill"><div class="dot"></div><span><strong>${d.label}:</strong> ${formatDate(d.date)}</span></div>`).join('')}</div>`:''}
       ${(h.extra_links||[]).length?`<div class="extra-links-display">${(h.extra_links||[]).map(l=>`<div class="extra-link-pill">🔗 <a href="${l.url}" target="_blank" onclick="event.stopPropagation()">${l.label}</a></div>`).join('')}</div>`:''}
       <div class="card-footer">
         <div class="card-tags">${tags}</div>
         <div class="card-actions" onclick="event.stopPropagation()">
           <button class="btn-sm btn-edit" onclick="openEditModal('${h._id}')">✏️ Edit</button>
           <button class="btn-sm btn-share" onclick="shareHackathon('${h._id}')">🔗</button>
-          <button class="btn-sm btn-review" onclick="openReviewModal('${h._id}','${h.name.replace(/'/g,'`')}')">⭐</button>
-          <button class="btn-sm btn-reminder" onclick="openReminderModal('${h._id}','${h.name.replace(/'/g,'`')}','${h.reg_deadline}')">🔔</button>
+          <button class="btn-sm btn-review" onclick="openReviewModal('${h._id}','${h.name.replace(/'/g,'\`')}')">⭐</button>
+          <button class="btn-sm btn-subscribe ${isSubbed?'subbed':''}" onclick="toggleSubscribe('${h._id}',this,event)">${isSubbed?'🔕 Unsubscribe':'📧 Email me'}</button>
+          <button class="btn-sm btn-reminder" onclick="openReminderModal('${h._id}','${h.name.replace(/'/g,'\`')}','${h.reg_deadline}')">🔔</button>
           <button class="btn-sm btn-delete" onclick="deleteHackathon('${h._id}')">🗑</button>
         </div>
       </div>
     </div>`;
   }
-
-  function renderCards(d){
-    Object.values(countdownIntervals).forEach(clearInterval);
-    countdownIntervals={};
-    const c=document.getElementById('cards-container');
-    if(!d.length){c.innerHTML='<div class="empty-state"><div class="icon">🌸</div><p>No hackathons found. Add one or click Find Hackathons!</p></div>';return;}
-    c.innerHTML=sortData(d).map(buildCardHTML).join('');
-    d.forEach(h=>startCountdown(h._id,h.reg_deadline));
-  }
-
-  function renderBookmarks(){
-    const c=document.getElementById('bookmarks-container'),s=allHackathons.filter(h=>bookmarks.includes(h._id));
-    if(!s.length){c.innerHTML='<div class="empty-state"><div class="icon">🔖</div><p>No saved hackathons yet!</p></div>';return;}
-    c.innerHTML=sortData(s).map(buildCardHTML).join('');
-    s.forEach(h=>startCountdown(h._id,h.reg_deadline));
-  }
-
-  // ── BOOKMARK ───────────────────────────────────────────
-  function toggleBookmark(id,btn){
-    if(bookmarks.includes(id)){bookmarks=bookmarks.filter(b=>b!==id);btn.classList.remove('active');showToast('Bookmark removed');}
-    else{bookmarks.push(id);btn.classList.add('active');showToast('🔖 Bookmarked!','success-green');}
-    localStorage.setItem('hk-bookmarks',JSON.stringify(bookmarks));
-    renderBookmarks();
-  }
-
-  // ── SHARE ──────────────────────────────────────────────
-  function shareHackathon(id){
-    const h=allHackathons.find(x=>x._id===id);
-    const text=`🌸 ${h.name}\n📅 Reg: ${formatDate(h.reg_deadline)}\n${h.url||window.location.href}`;
-    if(navigator.share)navigator.share({title:h.name,text,url:h.url||window.location.href});
-    else{navigator.clipboard.writeText(text);showToast('📋 Copied!','success-green');}
-  }
-
-  // ── FILTER ─────────────────────────────────────────────
-  function filterCards(){
-    const s=document.getElementById('search-input').value.toLowerCase(),m=document.getElementById('mode-filter').value;
-    let d=allHackathons.filter(h=>{
-      const ms=h.name.toLowerCase().includes(s)||(h.theme||'').toLowerCase().includes(s)||(h.organizer||'').toLowerCase().includes(s);
-      return ms&&(!m||h.mode===m);
-    });
-    if(deadlineFilter==='urgent')d=d.filter(h=>{const x=daysUntil(h.reg_deadline);return x>=0&&x<=2;});
-    if(deadlineFilter==='soon')d=d.filter(h=>{const x=daysUntil(h.reg_deadline);return x>2&&x<=7;});
-    if(deadlineFilter==='ok')d=d.filter(h=>daysUntil(h.reg_deadline)>7);
-    renderCards(d);
-  }
-
+  function renderCards(d){Object.values(countdownIntervals).forEach(clearInterval);countdownIntervals={};const c=document.getElementById('cards-container');if(!d.length){c.innerHTML='<div class="empty-state"><div class="icon">🌸</div><p>No hackathons found. Add one or click Find Hackathons!</p></div>';return;}c.innerHTML=sortData(d).map(buildCardHTML).join('');d.forEach(h=>startCountdown(h._id,h.reg_deadline));}
+  function renderBookmarks(){const c=document.getElementById('bookmarks-container'),s=allHackathons.filter(h=>bookmarks.includes(h._id));if(!s.length){c.innerHTML='<div class="empty-state"><div class="icon">🔖</div><p>No saved hackathons yet!</p></div>';return;}c.innerHTML=sortData(s).map(buildCardHTML).join('');s.forEach(h=>startCountdown(h._id,h.reg_deadline));}
+  function toggleBookmark(id,btn){if(bookmarks.includes(id)){bookmarks=bookmarks.filter(b=>b!==id);btn.classList.remove('active');showToast('Bookmark removed');}else{bookmarks.push(id);btn.classList.add('active');showToast('🔖 Bookmarked!','success-green');}localStorage.setItem('hk-bookmarks',JSON.stringify(bookmarks));if(currentUser)fetch(AUTH_API+'/bookmarks',{method:'PUT',headers:authHeaders(),body:JSON.stringify({bookmarks})}).catch(()=>{});renderBookmarks();}
+  function shareHackathon(id){const h=allHackathons.find(x=>x._id===id);const text=`🌸 ${h.name}\n📅 Reg: ${formatDate(h.reg_deadline)}\n${h.url||window.location.href}`;if(navigator.share)navigator.share({title:h.name,text,url:h.url||window.location.href});else{navigator.clipboard.writeText(text);showToast('📋 Copied!','success-green');}}
+  function filterCards(){const s=document.getElementById('search-input').value.toLowerCase(),m=document.getElementById('mode-filter').value;let d=allHackathons.filter(h=>{const ms=h.name.toLowerCase().includes(s)||(h.theme||''). toLowerCase().includes(s)||(h.organizer||''). toLowerCase().includes(s);return ms&&(!m||h.mode===m);});if(deadlineFilter==='urgent')d=d.filter(h=>{const x=daysUntil(h.reg_deadline);return x>=0&&x<=2;});if(deadlineFilter==='soon')d=d.filter(h=>{const x=daysUntil(h.reg_deadline);return x>2&&x<=7;});if(deadlineFilter==='ok')d=d.filter(h=>daysUntil(h.reg_deadline)>7);renderCards(d);}
   function setDeadlineFilter(v,el){deadlineFilter=v;document.querySelectorAll('.filter-tag').forEach(b=>b.classList.remove('active'));el.classList.add('active');filterCards();}
-
-  // ── PAGES ──────────────────────────────────────────────
-  function showPage(name,el){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-    document.getElementById('page-'+name).classList.add('active');
-    if(el)el.classList.add('active');
-    if(name==='calendar'&&!calendarInstance)initCalendar();
-    if(name==='calendar'&&calendarInstance)renderCalendarEvents();
-    if(name==='bookmarks')renderBookmarks();
-  }
-
-  // ── CALENDAR ───────────────────────────────────────────
-  function initCalendar(){
-    calendarInstance=new FullCalendar.Calendar(document.getElementById('calendar'),{
-      initialView:'dayGridMonth',height:650,
-      headerToolbar:{left:'prev,next today',center:'title',right:'dayGridMonth,listMonth'},
-      eventClick(info){const id=info.event.extendedProps.hackathonId;if(id){showPage('list',document.querySelector('.nav-tab'));openDetail(id);}}
-    });
-    calendarInstance.render();renderCalendarEvents();
-  }
-
-  function renderCalendarEvents(){
-    if(!calendarInstance)return;
-    calendarInstance.removeAllEvents();
-    allHackathons.forEach(h=>{
-      const d=daysUntil(h.reg_deadline),c=d<=2?'#f87171':d<=7?'#fb923c':'#a78bfa';
-      calendarInstance.addEvent({title:'📝 '+h.name+' (Reg)',start:h.reg_deadline,backgroundColor:c,extendedProps:{hackathonId:h._id}});
-      calendarInstance.addEvent({title:'🚀 '+h.name+' (Sub)',start:h.sub_deadline,backgroundColor:'#34d399',extendedProps:{hackathonId:h._id}});
-    });
-  }
-
-  // ── EXTRA DATES ────────────────────────────────────────
-  function addExtraDate(label='',date=''){
-    const list=document.getElementById('extra-dates-list');
-    const div=document.createElement('div');
-    div.className='extra-row date-row';
-    div.innerHTML=`
-      <input type="text" placeholder="Label (e.g. Final Round)" value="${label}" class="extra-date-label"/>
-      <input type="datetime-local" value="${date}" class="extra-date-val"/>
-      <button type="button" class="btn-remove-row" onclick="this.parentElement.remove()">✕</button>`;
-    list.appendChild(div);
-  }
-
-  function getExtraDates(){
-    return Array.from(document.querySelectorAll('.extra-row.date-row')).map(row=>({
-      label:row.querySelector('.extra-date-label').value.trim(),
-      date:row.querySelector('.extra-date-val').value
-    })).filter(d=>d.label&&d.date);
-  }
-
-  // ── EXTRA LINKS ────────────────────────────────────────
-  function addExtraLink(label='',url=''){
-    const list=document.getElementById('extra-links-list');
-    const div=document.createElement('div');
-    div.className='extra-row link-row';
-    div.innerHTML=`
-      <input type="text" placeholder="Label (e.g. Registration Form)" value="${label}" class="extra-link-label"/>
-      <input type="url" placeholder="https://..." value="${url}" class="extra-link-url"/>
-      <button type="button" class="btn-remove-row" onclick="this.parentElement.remove()">✕</button>`;
-    list.appendChild(div);
-  }
-
-  function getExtraLinks(){
-    return Array.from(document.querySelectorAll('.extra-row.link-row')).map(row=>({
-      label:row.querySelector('.extra-link-label').value.trim(),
-      url:row.querySelector('.extra-link-url').value.trim()
-    })).filter(l=>l.label&&l.url);
-  }
-
-  // ── ADD MODAL ──────────────────────────────────────────
-  function openAddModal(){
-    document.getElementById('add-modal-title').textContent='✨ Add Hackathon';
-    document.getElementById('form-submit-btn').textContent='🌸 Add Hackathon';
-    document.getElementById('f-edit-id').value='';
-    document.getElementById('f-name').value='';
-    document.getElementById('f-organizer').value='';
-    document.getElementById('f-mode').value='Online';
-    document.getElementById('f-theme').value='';
-    document.getElementById('f-description').value='';
-    document.getElementById('f-reg-deadline').value='';
-    document.getElementById('f-sub-deadline').value='';
-    document.getElementById('f-prize').value='';
-    document.getElementById('f-team-size').value='';
-    document.getElementById('f-url').value='';
-    document.getElementById('f-tags').value='';
-    document.getElementById('extra-dates-list').innerHTML='';
-    document.getElementById('extra-links-list').innerHTML='';
-    document.getElementById('add-modal').classList.remove('hidden');
-  }
-
-  // ── EDIT MODAL ─────────────────────────────────────────
-  async function openEditModal(id){
-    try{
-      const r=await fetch(`${API}/${id}`),j=await r.json(),h=j.data;
-      document.getElementById('add-modal-title').textContent='✏️ Edit Hackathon';
-      document.getElementById('form-submit-btn').textContent='💾 Save Changes';
-      document.getElementById('f-edit-id').value=h._id;
-      document.getElementById('f-name').value=h.name||'';
-      document.getElementById('f-organizer').value=h.organizer||'';
-      document.getElementById('f-mode').value=h.mode||'Online';
-      document.getElementById('f-theme').value=h.theme||'';
-      document.getElementById('f-description').value=h.description||'';
-      document.getElementById('f-reg-deadline').value=h.reg_deadline?toLocalInput(h.reg_deadline):'';
-      document.getElementById('f-sub-deadline').value=h.sub_deadline?toLocalInput(h.sub_deadline):'';
-      document.getElementById('f-prize').value=h.prize||'';
-      document.getElementById('f-team-size').value=h.team_size||'';
-      document.getElementById('f-url').value=h.url||'';
-      document.getElementById('f-tags').value=(h.tags||[]).join(', ');
-      // Populate extra dates
-      document.getElementById('extra-dates-list').innerHTML='';
-      (h.extra_dates||[]).forEach(d=>addExtraDate(d.label,toLocalInput(d.date)));
-      // Populate extra links
-      document.getElementById('extra-links-list').innerHTML='';
-      (h.extra_links||[]).forEach(l=>addExtraLink(l.label,l.url));
-      document.getElementById('add-modal').classList.remove('hidden');
-    }catch(e){showToast('Could not load hackathon','error');}
-  }
-
-  async function submitHackathon(e){
-    e.preventDefault();
-    const editId=document.getElementById('f-edit-id').value;
-    const tags=document.getElementById('f-tags').value.split(',').map(t=>t.trim()).filter(Boolean);
-    const body={
-      name:document.getElementById('f-name').value,
-      organizer:document.getElementById('f-organizer').value,
-      mode:document.getElementById('f-mode').value,
-      theme:document.getElementById('f-theme').value,
-      description:document.getElementById('f-description').value,
-      reg_deadline:document.getElementById('f-reg-deadline').value,
-      sub_deadline:document.getElementById('f-sub-deadline').value,
-      prize:document.getElementById('f-prize').value,
-      team_size:document.getElementById('f-team-size').value,
-      url:document.getElementById('f-url').value,
-      tags,
-      extra_dates:getExtraDates(),
-      extra_links:getExtraLinks()
-    };
-    try{
-      const isEdit=!!editId;
-      const r=await fetch(isEdit?`${API}/${editId}`:API,{
-        method:isEdit?'PUT':'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(body)
-      }),j=await r.json();
-      if(j.success){
-        closeModal('add-modal');
-        showToast(isEdit?'💾 Saved!':'🌸 Hackathon added!','success-green');
-        addNotif(isEdit?'✏️':'✨',isEdit?'Hackathon updated!':'New hackathon added!',body.name);
-        fetchHackathons();
-      } else showToast(j.message||'Failed','error');
-    }catch(err){showToast('Server error','error');}
-  }
-
-  // ── DELETE ─────────────────────────────────────────────
-  async function deleteHackathon(id){
-    if(!confirm('Delete this hackathon?'))return;
-    try{const r=await fetch(`${API}/${id}`,{method:'DELETE'}),j=await r.json();if(j.success){showToast('🗑 Deleted');fetchHackathons();}}
-    catch(err){showToast('Error','error');}
-  }
-
-  // ── REMINDER ───────────────────────────────────────────
-  function openReminderModal(id,name,reg){
-    currentReminderId=id;
-    document.getElementById('reminder-hackathon-name').textContent=name;
-    document.getElementById('reminder-hackathon-date').textContent='Reg deadline: '+formatDate(reg);
-    document.getElementById('reminder-modal').classList.remove('hidden');
-  }
-  async function submitReminder(){
-    const email=document.getElementById('reminder-email').value.trim();
-    if(!email){showToast('Enter a valid email','error');return;}
-    try{
-      const r=await fetch(`${API}/${currentReminderId}/subscribe`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})}),j=await r.json();
-      if(j.success){closeModal('reminder-modal');showToast('🔔 Reminder set!','success-green');addNotif('🔔','Reminder set!','You\'ll be notified 3 days before the deadline.');}
-      else showToast(j.message||'Failed','error');
-    }catch(err){showToast('Server error','error');}
-  }
-
-  // ── REVIEW ─────────────────────────────────────────────
-  function openReviewModal(id,name){
-    currentReviewId=id;selectedRating=0;
-    document.getElementById('review-hackathon-name').textContent=name;
-    document.getElementById('review-author').value='';
-    document.getElementById('review-comment').value='';
-    document.querySelectorAll('.star-input button').forEach(b=>b.classList.remove('active'));
-    document.getElementById('review-modal').classList.remove('hidden');
-    loadReviews(id);
-  }
-  function setRating(n){
-    selectedRating=n;
-    document.querySelectorAll('.star-input button').forEach(b=>{b.classList.toggle('active',parseInt(b.dataset.star)<=n);});
-  }
-  async function loadReviews(id){
-    try{
-      const r=await fetch(`${API}/${id}/reviews`),j=await r.json();
-      const list=document.getElementById('reviews-list');
-      if(!j.reviews||!j.reviews.length){list.innerHTML='<p style="text-align:center;color:var(--muted);font-size:13px;padding:16px">No reviews yet — be the first!</p>';return;}
-      list.innerHTML=`<p style="font-weight:700;font-size:13px;margin-bottom:8px">Reviews (avg: ${j.avg_rating}⭐)</p>`+
-        j.reviews.map(r=>`<div class="review-item"><div class="r-top"><span class="r-author">${r.author||'Anonymous'}</span><span class="r-stars">${'⭐'.repeat(r.rating)}</span></div>${r.comment?`<p class="r-comment">${r.comment}</p>`:''}<span class="r-date">${new Date(r.created_at).toLocaleDateString()}</span></div>`).join('');
-    }catch(e){}
-  }
-  async function submitReview(){
-    if(!selectedRating){showToast('Please select a rating','error');return;}
-    try{
-      const r=await fetch(`${API}/${currentReviewId}/review`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({rating:selectedRating,comment:document.getElementById('review-comment').value,author:document.getElementById('review-author').value||'Anonymous'})}),j=await r.json();
-      if(j.success){showToast('⭐ Review submitted!','success-green');addNotif('⭐','Review submitted!','Thanks for your feedback!');loadReviews(currentReviewId);fetchHackathons();}
-      else showToast(j.message||'Failed','error');
-    }catch(err){showToast('Server error','error');}
-  }
-
-  // ── DETAIL ─────────────────────────────────────────────
-  async function openDetail(id){
-    try{
-      const r=await fetch(`${API}/${id}`),j=await r.json(),h=j.data;
-      document.getElementById('detail-title').textContent=h.name;
-      const rd=daysUntil(h.reg_deadline);
-      const rows=[['Organizer',h.organizer||'—'],['Theme',h.theme||'—'],['Mode',h.mode],['Prize',h.prize||'—'],['Team Size',h.team_size||'—'],['Rating',h.avg_rating?(h.avg_rating+'⭐ ('+(h.reviews||[]).length+' reviews)'):'No reviews yet'],['Source',h.source||'manual'],['Registration Deadline',formatDate(h.reg_deadline)+` (${getDaysLabel(rd).label})`],['Submission Deadline',formatDate(h.sub_deadline)],['Description',h.description||'—'],['Tags',(h.tags||[]).join(', ')||'—']];
-      document.getElementById('detail-body').innerHTML=rows.map(([k,v])=>`<div class="detail-row"><span class="key">${k}</span><span class="val">${v}</span></div>`).join('');
-      document.getElementById('detail-actions').innerHTML=`
-        ${h.url?`<a href="${h.url}" target="_blank" style="flex:1;text-decoration:none"><button class="btn-submit" style="margin:0">🔗 Open Link</button></a>`:''}
-        <button class="btn-submit" style="flex:1;margin:0;background:linear-gradient(135deg,#fde68a,#fb923c);color:#92400e;" onclick="closeModal('detail-modal');openReviewModal('${h._id}','${h.name.replace(/'/g,'`')}')">⭐ Review</button>
-        <button class="btn-submit" style="flex:1;margin:0;background:linear-gradient(135deg,#f9a8d4,#c4b5fd);" onclick="closeModal('detail-modal');openReminderModal('${h._id}','${h.name.replace(/'/g,'`')}','${h.reg_deadline}')">🔔 Remind</button>`;
-      document.getElementById('detail-modal').classList.remove('hidden');
-    }catch(e){showToast('Could not load details','error');}
-  }
-
-  // ── MODALS ─────────────────────────────────────────────
+  function showPage(name,el){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById('page-'+name).classList.add('active');if(el)el.classList.add('active');if(name==='calendar'&&!calendarInstance)initCalendar();if(name==='calendar'&&calendarInstance)renderCalendarEvents();if(name==='bookmarks')renderBookmarks();}
+  function initCalendar(){calendarInstance=new FullCalendar.Calendar(document.getElementById('calendar'),{initialView:'dayGridMonth',height:650,headerToolbar:{left:'prev,next today',center:'title',right:'dayGridMonth,listMonth'},eventClick(info){const id=info.event.extendedProps.hackathonId;if(id){showPage('list',document.querySelector('.nav-tab'));openDetail(id);}}});calendarInstance.render();renderCalendarEvents();}
+  function renderCalendarEvents(){if(!calendarInstance)return;calendarInstance.removeAllEvents();allHackathons.forEach(h=>{const d=daysUntil(h.reg_deadline),c=d<=2?'#f87171':d<=7?'#fb923c':'#a78bfa';calendarInstance.addEvent({title:'📝 '+h.name+' (Reg)',start:h.reg_deadline,backgroundColor:c,extendedProps:{hackathonId:h._id}});calendarInstance.addEvent({title:'🚀 '+h.name+' (Sub)',start:h.sub_deadline,backgroundColor:'#34d399',extendedProps:{hackathonId:h._id}});});}
+  function addExtraDate(label='',date=''){const list=document.getElementById('extra-dates-list');const div=document.createElement('div');div.className='extra-row date-row';div.innerHTML=`<input type="text" placeholder="Label (e.g. Final Round)" value="${label}" class="extra-date-label"/><input type="datetime-local" value="${date}" class="extra-date-val"/><button type="button" class="btn-remove-row" onclick="this.parentElement.remove()">✕</button>`;list.appendChild(div);}
+  function getExtraDates(){return Array.from(document.querySelectorAll('.extra-row.date-row')).map(row=>({label:row.querySelector('.extra-date-label').value.trim(),date:row.querySelector('.extra-date-val').value})).filter(d=>d.label&&d.date);}
+  function addExtraLink(label='',url=''){const list=document.getElementById('extra-links-list');const div=document.createElement('div');div.className='extra-row link-row';div.innerHTML=`<input type="text" placeholder="Label (e.g. Registration Form)" value="${label}" class="extra-link-label"/><input type="url" placeholder="https://..." value="${url}" class="extra-link-url"/><button type="button" class="btn-remove-row" onclick="this.parentElement.remove()">✕</button>`;list.appendChild(div);}
+  function getExtraLinks(){return Array.from(document.querySelectorAll('.extra-row.link-row')).map(row=>({label:row.querySelector('.extra-link-label').value.trim(),url:row.querySelector('.extra-link-url').value.trim()})).filter(l=>l.label&&l.url);}
+  function openAddModal(){document.getElementById('add-modal-title').textContent='✨ Add Hackathon';document.getElementById('form-submit-btn').textContent='🌸 Add Hackathon';['f-edit-id','f-name','f-organizer','f-theme','f-description','f-reg-deadline','f-sub-deadline','f-prize','f-team-size','f-url','f-tags'].forEach(id=>document.getElementById(id).value='');document.getElementById('f-mode').value='Online';document.getElementById('extra-dates-list').innerHTML='';document.getElementById('extra-links-list').innerHTML='';document.getElementById('add-modal').classList.remove('hidden');}
+  async function openEditModal(id){try{const r=await fetch(`${API}/${id}`),j=await r.json(),h=j.data;document.getElementById('add-modal-title').textContent='✏️ Edit Hackathon';document.getElementById('form-submit-btn').textContent='💾 Save Changes';document.getElementById('f-edit-id').value=h._id;document.getElementById('f-name').value=h.name||'';document.getElementById('f-organizer').value=h.organizer||'';document.getElementById('f-mode').value=h.mode||'Online';document.getElementById('f-theme').value=h.theme||'';document.getElementById('f-description').value=h.description||'';document.getElementById('f-reg-deadline').value=h.reg_deadline?toLocalInput(h.reg_deadline):'';document.getElementById('f-sub-deadline').value=h.sub_deadline?toLocalInput(h.sub_deadline):'';document.getElementById('f-prize').value=h.prize||'';document.getElementById('f-team-size').value=h.team_size||'';document.getElementById('f-url').value=h.url||'';document.getElementById('f-tags').value=(h.tags||[]).join(', ');document.getElementById('extra-dates-list').innerHTML='';(h.extra_dates||[]).forEach(d=>addExtraDate(d.label,toLocalInput(d.date)));document.getElementById('extra-links-list').innerHTML='';(h.extra_links||[]).forEach(l=>addExtraLink(l.label,l.url));document.getElementById('add-modal').classList.remove('hidden');}catch(e){showToast('Could not load hackathon','error');}}
+  async function submitHackathon(e){e.preventDefault();const editId=document.getElementById('f-edit-id').value;const tags=document.getElementById('f-tags').value.split(',').map(t=>t.trim()).filter(Boolean);const body={name:document.getElementById('f-name').value,organizer:document.getElementById('f-organizer').value,mode:document.getElementById('f-mode').value,theme:document.getElementById('f-theme').value,description:document.getElementById('f-description').value,reg_deadline:document.getElementById('f-reg-deadline').value,sub_deadline:document.getElementById('f-sub-deadline').value,prize:document.getElementById('f-prize').value,team_size:document.getElementById('f-team-size').value,url:document.getElementById('f-url').value,tags,extra_dates:getExtraDates(),extra_links:getExtraLinks()};try{const isEdit=!!editId;const r=await fetch(isEdit?`${API}/${editId}`:API,{method:isEdit?'PUT':'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}),j=await r.json();if(j.success){closeModal('add-modal');showToast(isEdit?'💾 Saved!':'🌸 Hackathon added!','success-green');addNotif(isEdit?'✏️':'✨',isEdit?'Hackathon updated!':'New hackathon added!',body.name);fetchHackathons();}else showToast(j.message||'Failed','error');}catch(err){showToast('Server error','error');}}
+  async function deleteHackathon(id){if(!confirm('Delete this hackathon?'))return;try{const r=await fetch(`${API}/${id}`,{method:'DELETE'}),j=await r.json();if(j.success){showToast('🗑 Deleted');fetchHackathons();}}catch(err){showToast('Error','error');}}
+  function openReminderModal(id,name,reg){currentReminderId=id;document.getElementById('reminder-hackathon-name').textContent=name;document.getElementById('reminder-hackathon-date').textContent='Reg deadline: '+formatDate(reg);if(currentUser)document.getElementById('reminder-email').value=currentUser.email;document.getElementById('reminder-modal').classList.remove('hidden');}
+  async function submitReminder(){const email=document.getElementById('reminder-email').value.trim();if(!email){showToast('Enter a valid email','error');return;}try{const r=await fetch(`${API}/${currentReminderId}/subscribe`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})}),j=await r.json();if(j.success){closeModal('reminder-modal');showToast('🔔 Reminder set!','success-green');addNotif('🔔','Reminder set!','You\'ll be notified before the deadline.');}else showToast(j.message||'Failed','error');}catch(err){showToast('Server error','error');}}
+  function openReviewModal(id,name){currentReviewId=id;selectedRating=0;document.getElementById('review-hackathon-name').textContent=name;document.getElementById('review-author').value=currentUser?currentUser.name:'';document.getElementById('review-comment').value='';document.querySelectorAll('.star-input button').forEach(b=>b.classList.remove('active'));document.getElementById('review-modal').classList.remove('hidden');loadReviews(id);}
+  function setRating(n){selectedRating=n;document.querySelectorAll('.star-input button').forEach(b=>{b.classList.toggle('active',parseInt(b.dataset.star)<=n);});}
+  async function loadReviews(id){try{const r=await fetch(`${API}/${id}/reviews`),j=await r.json();const list=document.getElementById('reviews-list');if(!j.reviews||!j.reviews.length){list.innerHTML='<p style="text-align:center;color:var(--muted);font-size:13px;padding:16px">No reviews yet — be the first!</p>';return;}list.innerHTML=`<p style="font-weight:700;font-size:13px;margin-bottom:8px">Reviews (avg: ${j.avg_rating}⭐)</p>`+j.reviews.map(r=>`<div class="review-item"><div class="r-top"><span class="r-author">${r.author||'Anonymous'}</span><span class="r-stars">${'⭐'.repeat(r.rating)}</span></div>${r.comment?`<p class="r-comment">${r.comment}</p>`:''}<span class="r-date">${new Date(r.created_at).toLocaleDateString()}</span></div>`).join('');}catch(e){}}
+  async function submitReview(){if(!selectedRating){showToast('Please select a rating','error');return;}try{const r=await fetch(`${API}/${currentReviewId}/review`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({rating:selectedRating,comment:document.getElementById('review-comment').value,author:document.getElementById('review-author').value||'Anonymous'})}),j=await r.json();if(j.success){showToast('⭐ Review submitted!','success-green');addNotif('⭐','Review submitted!','Thanks for your feedback!');loadReviews(currentReviewId);fetchHackathons();}else showToast(j.message||'Failed','error');}catch(err){showToast('Server error','error');}}
+  async function openDetail(id){try{const r=await fetch(`${API}/${id}`),j=await r.json(),h=j.data;document.getElementById('detail-title').textContent=h.name;const rd=daysUntil(h.reg_deadline);const rows=[['Organizer',h.organizer||'—'],['Theme',h.theme||'—'],['Mode',h.mode],['Prize',h.prize||'—'],['Team Size',h.team_size||'—'],['Rating',h.avg_rating?(h.avg_rating+'⭐ ('+(h.reviews||[]).length+' reviews)'):'No reviews yet'],['Source',h.source||'manual'],['Registration Deadline',formatDate(h.reg_deadline)+` (${getDaysLabel(rd).label})`],['Submission Deadline',formatDate(h.sub_deadline)],['Description',h.description||'—'],['Tags',(h.tags||[]).join(', ')||'—']];document.getElementById('detail-body').innerHTML=rows.map(([k,v])=>`<div class="detail-row"><span class="key">${k}</span><span class="val">${v}</span></div>`).join('');document.getElementById('detail-actions').innerHTML=`${h.url?`<a href="${h.url}" target="_blank" style="flex:1;text-decoration:none"><button class="btn-submit" style="margin:0">🔗 Open Link</button></a>`:''}<button class="btn-submit" style="flex:1;margin:0;background:linear-gradient(135deg,#fde68a,#fb923c);color:#92400e;" onclick="closeModal('detail-modal');openReviewModal('${h._id}','${h.name.replace(/'/g,'\`')}')">⭐ Review</button><button class="btn-submit" style="flex:1;margin:0;background:linear-gradient(135deg,#f9a8d4,#c4b5fd);" onclick="closeModal('detail-modal');openReminderModal('${h._id}','${h.name.replace(/'/g,'\`')}','${h.reg_deadline}')">🔔 Remind</button>`;document.getElementById('detail-modal').classList.remove('hidden');}catch(e){showToast('Could not load details','error');}}
   function closeModal(id){document.getElementById(id).classList.add('hidden');}
   document.querySelectorAll('.modal-overlay').forEach(o=>{o.addEventListener('click',e=>{if(e.target===o)o.classList.add('hidden');});});
-
-  // ── INIT ───────────────────────────────────────────────
+  applyAuthState();
   renderNotifs();
   fetchHackathons();
 </script>

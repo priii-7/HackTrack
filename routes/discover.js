@@ -47,6 +47,43 @@ function fetchPage(url) {
   });
 }
 
+// ── SAFE DATE PARSER (TIMEZONE-SAFE) ──────────────────
+function safeParseDate(dateStr) {
+  if (!dateStr) return null;
+
+  // Handle YYYY-MM-DD format explicitly to avoid UTC timezone shift
+  // new Date("2026-04-15") is parsed as UTC midnight, which shifts the
+  // date when displayed in IST (UTC+5:30). Fix: pass parts separately.
+  const isoMatch = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (isoMatch) {
+    const d = new Date(
+      parseInt(isoMatch[1]),
+      parseInt(isoMatch[2]) - 1, // month is 0-indexed
+      parseInt(isoMatch[3])
+    );
+    return isNaN(d) ? null : d;
+  }
+
+  // Handle DD/MM/YYYY format
+  const dmyMatch = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (dmyMatch) {
+    const d = new Date(
+      parseInt(dmyMatch[3]),
+      parseInt(dmyMatch[2]) - 1,
+      parseInt(dmyMatch[1])
+    );
+    return isNaN(d) ? null : d;
+  }
+
+  // For natural language dates like "15 Apr 2026" or "Apr 15, 2026"
+  // new Date() handles these in local time correctly already
+  const parsed = new Date(dateStr);
+  if (isNaN(parsed)) return null;
+
+  // Normalize to local midnight to strip any time component
+  return new Date(parsed.getFullYear(), parsed.getMonth(), parsed.getDate());
+}
+
 // ── EXTRACT DATES FROM HTML ────────────────────────────
 function extractDatesFromHTML(html, url) {
   const now = new Date();
@@ -63,19 +100,7 @@ function extractDatesFromHTML(html, url) {
 
   const foundDates = [];
 
-  // ✅ SAFE DATE PARSER (NO TIMEZONE SHIFT)
-  function safeParseDate(dateStr) {
-    const parsed = new Date(dateStr);
-
-    if (isNaN(parsed)) return null;
-
-    // 🔥 REMOVE TIME COMPLETELY (BEST FOR YOUR PROJECT)
-    parsed.setHours(0, 0, 0, 0);
-
-    return parsed;
-  }
-
-  // 🔍 Search near keywords
+  // Search near deadline keywords (higher priority)
   const chunks = text.split(/\s+/);
   for (let i = 0; i < chunks.length; i++) {
     if (deadlineKeywords.test(chunks[i])) {
@@ -84,10 +109,8 @@ function extractDatesFromHTML(html, url) {
       for (const pattern of datePatterns) {
         pattern.lastIndex = 0;
         let m;
-
         while ((m = pattern.exec(nearby)) !== null) {
           const d = safeParseDate(m[0]);
-
           if (d && d > now) {
             foundDates.push({ date: d, priority: 1 });
           }
@@ -96,14 +119,12 @@ function extractDatesFromHTML(html, url) {
     }
   }
 
-  // 🔍 Search full text
+  // Search full text (lower priority)
   for (const pattern of datePatterns) {
     pattern.lastIndex = 0;
     let m;
-
     while ((m = pattern.exec(text)) !== null) {
       const d = safeParseDate(m[0]);
-
       if (
         d &&
         d > now &&
@@ -114,14 +135,14 @@ function extractDatesFromHTML(html, url) {
     }
   }
 
-  // Sort
+  // Sort by priority then date
   foundDates.sort((a, b) => b.priority - a.priority || a.date - b.date);
 
   const uniqueDates = [
     ...new Map(foundDates.map(d => [d.date.toDateString(), d])).values()
   ].map(d => d.date);
 
-  // 🔥 FIX SITE-SPECIFIC TOO
+  // Site-specific overrides
   if (url.includes('unstop.com')) {
     const m = text.match(/Registration.*?(\d{1,2}\s+\w+\s+\d{4}|\d{4}-\d{2}-\d{2})/i);
     if (m) {
@@ -167,9 +188,9 @@ async function buildHackathonFromURL(result) {
     reg_deadline = dates[0]; sub_deadline = dates[1];
   } else if (dates.length === 1) {
     reg_deadline = dates[0];
-    sub_deadline = new Date(dates[0]); sub_deadline.setDate(sub_deadline.getDate() + 7);
+    sub_deadline = new Date(dates[0]);
+    sub_deadline.setDate(sub_deadline.getDate() + 7);
   } else {
-    // No dates found — skip this result
     console.log(`  ⚠️ No dates found for: ${result.title.substring(0,40)}`);
     return null;
   }
@@ -230,7 +251,6 @@ router.post('/', async (req, res) => {
     console.log(`\nTotal unique hackathon results: ${allResults.length}`);
     console.log('Fetching individual pages for real dates...\n');
 
-    // Fetch each page to get real dates (limit to 8 to avoid timeout)
     let saved = 0, skipped = 0, noDate = 0;
 
     for (const result of allResults.slice(0, 8)) {
