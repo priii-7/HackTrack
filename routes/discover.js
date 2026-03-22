@@ -52,60 +52,90 @@ function extractDatesFromHTML(html, url) {
   const now = new Date();
   const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
 
-  // Patterns to look for near deadline keywords
   const deadlineKeywords = /(?:registr|deadline|last date|apply by|closes?|ends?|due)/i;
+
   const datePatterns = [
-    // DD Month YYYY or Month DD, YYYY
     /(\d{1,2})\s+(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*,?\s*(\d{4})/gi,
     /(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(\d{1,2}),?\s*(\d{4})/gi,
-    // YYYY-MM-DD
     /(\d{4})-(\d{2})-(\d{2})/g,
-    // DD/MM/YYYY
     /(\d{1,2})\/(\d{1,2})\/(\d{4})/g,
   ];
 
   const foundDates = [];
 
-  // Search around deadline keywords first
+  // ✅ SAFE DATE PARSER (NO TIMEZONE SHIFT)
+  function safeParseDate(dateStr) {
+    const parsed = new Date(dateStr);
+
+    if (isNaN(parsed)) return null;
+
+    // 🔥 REMOVE TIME COMPLETELY (BEST FOR YOUR PROJECT)
+    parsed.setHours(0, 0, 0, 0);
+
+    return parsed;
+  }
+
+  // 🔍 Search near keywords
   const chunks = text.split(/\s+/);
   for (let i = 0; i < chunks.length; i++) {
     if (deadlineKeywords.test(chunks[i])) {
-      const nearby = chunks.slice(Math.max(0, i-2), i+15).join(' ');
+      const nearby = chunks.slice(Math.max(0, i - 2), i + 15).join(' ');
+
       for (const pattern of datePatterns) {
         pattern.lastIndex = 0;
         let m;
+
         while ((m = pattern.exec(nearby)) !== null) {
-          const d = new Date(m[0]);
-          if (!isNaN(d) && d > now) foundDates.push({ date: d, priority: 1 });
+          const d = safeParseDate(m[0]);
+
+          if (d && d > now) {
+            foundDates.push({ date: d, priority: 1 });
+          }
         }
       }
     }
   }
 
-  // Also search entire text for any future dates
+  // 🔍 Search full text
   for (const pattern of datePatterns) {
     pattern.lastIndex = 0;
     let m;
+
     while ((m = pattern.exec(text)) !== null) {
-      const d = new Date(m[0]);
-      if (!isNaN(d) && d > now && d < new Date(now.getFullYear() + 2, 11, 31)) {
+      const d = safeParseDate(m[0]);
+
+      if (
+        d &&
+        d > now &&
+        d < new Date(now.getFullYear() + 2, 11, 31)
+      ) {
         foundDates.push({ date: d, priority: 0 });
       }
     }
   }
 
-  // Sort by priority then by date
+  // Sort
   foundDates.sort((a, b) => b.priority - a.priority || a.date - b.date);
-  const uniqueDates = [...new Map(foundDates.map(d => [d.date.toDateString(), d])).values()].map(d => d.date);
 
-  // Site-specific extraction
+  const uniqueDates = [
+    ...new Map(foundDates.map(d => [d.date.toDateString(), d])).values()
+  ].map(d => d.date);
+
+  // 🔥 FIX SITE-SPECIFIC TOO
   if (url.includes('unstop.com')) {
-    const unstopDate = text.match(/Registration.*?(\d{1,2}\s+\w+\s+\d{4}|\d{4}-\d{2}-\d{2})/i);
-    if (unstopDate) { const d = new Date(unstopDate[1]); if (!isNaN(d) && d > now) uniqueDates.unshift(d); }
+    const m = text.match(/Registration.*?(\d{1,2}\s+\w+\s+\d{4}|\d{4}-\d{2}-\d{2})/i);
+    if (m) {
+      const d = safeParseDate(m[1]);
+      if (d && d > now) uniqueDates.unshift(d);
+    }
   }
+
   if (url.includes('devfolio.co')) {
-    const devfolioDate = text.match(/Apply by.*?(\w+\s+\d{1,2},?\s+\d{4})/i);
-    if (devfolioDate) { const d = new Date(devfolioDate[1]); if (!isNaN(d) && d > now) uniqueDates.unshift(d); }
+    const m = text.match(/Apply by.*?(\w+\s+\d{1,2},?\s+\d{4})/i);
+    if (m) {
+      const d = safeParseDate(m[1]);
+      if (d && d > now) uniqueDates.unshift(d);
+    }
   }
 
   return uniqueDates.slice(0, 5);
