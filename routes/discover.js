@@ -51,37 +51,31 @@ function fetchPage(url) {
 function safeParseDate(dateStr) {
   if (!dateStr) return null;
 
-  // Handle YYYY-MM-DD format explicitly to avoid UTC timezone shift
-  // new Date("2026-04-15") is parsed as UTC midnight, which shifts the
-  // date when displayed in IST (UTC+5:30). Fix: pass parts separately.
   const isoMatch = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (isoMatch) {
-    const d = new Date(
-      parseInt(isoMatch[1]),
-      parseInt(isoMatch[2]) - 1, // month is 0-indexed
-      parseInt(isoMatch[3])
+    return new Date(
+      Number(isoMatch[1]),
+      Number(isoMatch[2]) - 1,
+      Number(isoMatch[3]),
+      12, 0, 0 // ✅ midday prevents shift
     );
-    return isNaN(d) ? null : d;
   }
 
-  // Handle DD/MM/YYYY format
   const dmyMatch = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
   if (dmyMatch) {
-    const d = new Date(
-      parseInt(dmyMatch[3]),
-      parseInt(dmyMatch[2]) - 1,
-      parseInt(dmyMatch[1])
+    return new Date(
+      Number(dmyMatch[3]),
+      Number(dmyMatch[2]) - 1,
+      Number(dmyMatch[1]),
+      12, 0, 0
     );
-    return isNaN(d) ? null : d;
   }
 
-  // For natural language dates like "15 Apr 2026" or "Apr 15, 2026"
-  // new Date() handles these in local time correctly already
   const parsed = new Date(dateStr);
   if (isNaN(parsed)) return null;
 
-  // Normalize to local midnight to strip any time component
-  return new Date(parsed.getFullYear(), parsed.getMonth(), parsed.getDate());
+  // ✅ KEEP original time (DO NOT reset to midnight)
+  return parsed;
 }
 
 // ── EXTRACT DATES FROM HTML ────────────────────────────
@@ -188,7 +182,7 @@ async function buildHackathonFromURL(result) {
     reg_deadline = dates[0]; sub_deadline = dates[1];
   } else if (dates.length === 1) {
     reg_deadline = dates[0];
-    sub_deadline = new Date(dates[0]);
+    sub_deadline = new Date(dates[0].getTime());
     sub_deadline.setDate(sub_deadline.getDate() + 7);
   } else {
     console.log(`  ⚠️ No dates found for: ${result.title.substring(0,40)}`);
